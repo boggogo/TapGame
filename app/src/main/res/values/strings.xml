@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Eggy Egg</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="koemdzhiev.eggyegg.PREFERENCE_FILE_KEY">numberOfClicks</string>
+</resources>
