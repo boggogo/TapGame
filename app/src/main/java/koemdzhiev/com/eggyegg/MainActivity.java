@@ -75,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
             tapImage.setImageResource(R.drawable.egg2);
             if(i == 80){
                 mVibrator.vibrate(400);
-                YoYo.with(Techniques.Swing).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
+                achiecementCeremony();
             }
         }
         //680000
@@ -85,19 +83,15 @@ public class MainActivity extends AppCompatActivity {
             tapImage.setImageResource(R.drawable.egg3);
             if(i == 60){
                 mVibrator.vibrate(400);
-                YoYo.with(Techniques.Swing).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
+                achiecementCeremony();
             }
         }
         //520000
         if(i <= 40){
             tapImage.setImageResource(R.drawable.egg4);
-            if(i == 40){
+            if(i == 40) {
                 mVibrator.vibrate(400);
-                YoYo.with(Techniques.FadeOut).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
+                achiecementCeremony();
             }
         }
         //360000
@@ -105,9 +99,7 @@ public class MainActivity extends AppCompatActivity {
             tapImage.setImageResource(R.drawable.egg5);
             if(i == 20){
                 mVibrator.vibrate(400);
-                YoYo.with(Techniques.FadeOut).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
+                achiecementCeremony();
             }
         }
         //200000
@@ -115,11 +107,15 @@ public class MainActivity extends AppCompatActivity {
             tapImage.setImageResource(R.drawable.egg6);
             if(i == 10){
                 mVibrator.vibrate(400);
-                YoYo.with(Techniques.FadeOut).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
-                YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
+                achiecementCeremony();
             }
         }
+    }
+
+    private void achiecementCeremony() {
+        YoYo.with(Techniques.FadeOut).duration(300).playOn(mTitle);
+        YoYo.with(Techniques.FadeIn).duration(300).playOn(mTitle);
+        YoYo.with(Techniques.Swing).duration(800).playOn(tapImage);
     }
 
     @Override
