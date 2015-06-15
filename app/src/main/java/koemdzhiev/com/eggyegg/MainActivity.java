@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,12 +23,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private int i;
     private Toolbar mToolbar;
+    private Button mRestartButton;
+    private TextView mSecretMessage;
     private ImageView tapImage;
     TextView mTitle;
     private TextView countTap;
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
     Vibrator mVibrator;
+    View.OnClickListener mTapListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // countTap = (TextView)findViewById(R.id.countTap);
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        tapImage = (ImageView)findViewById(R.id.tapImage);
-        tapImage.setOnClickListener(new View.OnClickListener() {
+        mTapListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i--;
@@ -52,10 +53,30 @@ public class MainActivity extends AppCompatActivity {
 
                 setEggImage();
             }
+        };
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mSecretMessage = (TextView) findViewById(R.id.secretMessage);
+        mSecretMessage.setVisibility(View.INVISIBLE);
+        mRestartButton = (Button) findViewById(R.id.restartButton);
+        mRestartButton.setVisibility(View.INVISIBLE);
+        mRestartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditor.putInt(MyConstants.KEY_TAB_NUMBER,20).apply();
+                i = 20;
+                mTitle.setText(i + "");
+                YoYo.with(Techniques.FadeOut).duration(500).playOn(findViewById(R.id.restartButton));
+                YoYo.with(Techniques.FadeIn).duration(500).playOn(findViewById(R.id.tapImage));
+                mRestartButton.setVisibility(View.INVISIBLE);
+                tapImage.setOnClickListener(mTapListener);
+                mSecretMessage.setVisibility(View.INVISIBLE);
+            }
         });
+        tapImage = (ImageView)findViewById(R.id.tapImage);
+        tapImage.setOnClickListener(mTapListener);
         mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
-        i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, 100);
+        i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, 20);
         mTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
         mTitle.setText(i + "");
         mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
@@ -108,6 +129,14 @@ public class MainActivity extends AppCompatActivity {
             if(i == 10){
                 mVibrator.vibrate(400);
                 achiecementCeremony();
+            }
+            if(i == 0){
+                mSecretMessage.setVisibility(View.VISIBLE);
+                YoYo.with(Techniques.FadeIn).duration(1900).playOn(mSecretMessage);
+                YoYo.with(Techniques.FadeOut).duration(1500).playOn(tapImage);
+                mRestartButton.setVisibility(View.VISIBLE);
+                YoYo.with(Techniques.FadeIn).duration(1500).playOn(mRestartButton);
+                tapImage.setOnClickListener(null);
             }
         }
     }
