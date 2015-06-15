@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor mEditor;
     Vibrator mVibrator;
     View.OnClickListener mTapListener;
+    //here enter start value to count down
+    private final int startCountDownValue = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mRestartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditor.putInt(MyConstants.KEY_TAB_NUMBER,20).apply();
-                i = 20;
+                mEditor.putInt(MyConstants.KEY_TAB_NUMBER,startCountDownValue).apply();
+                i = startCountDownValue;
                 mTitle.setText(i + "");
                 YoYo.with(Techniques.FadeOut).duration(500).playOn(findViewById(R.id.restartButton));
                 YoYo.with(Techniques.FadeIn).duration(500).playOn(findViewById(R.id.tapImage));
@@ -76,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
         tapImage.setOnClickListener(mTapListener);
         mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
-        i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, 20);
+
+        i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, startCountDownValue);
         mTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
         mTitle.setText(i + "");
         mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         if(i <= 80){
             tapImage.setImageResource(R.drawable.egg2);
             if(i == 80){
-                mVibrator.vibrate(400);
+                mVibrator.vibrate(200);
                 achiecementCeremony();
             }
         }
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         if(i <= 60){
             tapImage.setImageResource(R.drawable.egg3);
             if(i == 60){
-                mVibrator.vibrate(400);
+                mVibrator.vibrate(200);
                 achiecementCeremony();
             }
         }
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         if(i <= 40){
             tapImage.setImageResource(R.drawable.egg4);
             if(i == 40) {
-                mVibrator.vibrate(400);
+                mVibrator.vibrate(200);
                 achiecementCeremony();
             }
         }
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         if(i <= 20){
             tapImage.setImageResource(R.drawable.egg5);
             if(i == 20){
-                mVibrator.vibrate(400);
+                mVibrator.vibrate(200);
                 achiecementCeremony();
             }
         }
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         if(i <= 10){
             tapImage.setImageResource(R.drawable.egg6);
             if(i == 10){
-                mVibrator.vibrate(400);
+                mVibrator.vibrate(200);
                 achiecementCeremony();
             }
             if(i == 0){
