@@ -28,6 +28,7 @@
         android:id="@+id/tapImage"
         android:src="@drawable/egg1"
         android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="62dp"/>
@@ -36,11 +37,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RESTART"
+        android:elevation="10dp"
+        android:textColor="@color/text_white_color"
         android:id="@+id/restartButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:background="@color/text_white_color"/>
+        android:background="@color/button_color"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/semi_transparent_button_color"
+        android:text="Next egg:"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:id="@+id/nextEggCount"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

@@ -4,4 +4,7 @@
     <color name="ColorPrimaryDark">#ffad6c40</color>
     <color name="ColorPrimary">#ffa65d29</color>
     <color name="text_white_color">@android:color/white</color>
+    <color name="button_color">#88a65d29</color>
+    <color name="semi_transparent_button_color">#70ffffff</color>
+
 </resources>

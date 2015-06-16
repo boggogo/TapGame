@@ -5,4 +5,6 @@ package koemdzhiev.com.eggyegg;
  */
 public class MyConstants {
     public static final String KEY_TAB_NUMBER = "tabNumber";
+    public static final String KEY_TAB_NEXT_EGG = "nextEggTab";
+    public static final String KEY_SOUNDS_STATE = "sounds_state";
 }
