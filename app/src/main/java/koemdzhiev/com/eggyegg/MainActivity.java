@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
        // countTap = (TextView)findViewById(R.id.countTap);
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         nextEggLabel = (TextView)findViewById(R.id.nextEggCount);
+        nextEggLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
         mTapListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,nextEggCounter).apply();
                 Log.d(TAG, mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, 0) + "");
                 mTitle.setText(i + "");
-                nextEggLabel.setText("Next egg:" + nextEggCounter);
+                nextEggLabel.setText("Next egg in:"+nextEggCounter);
                 //apply animation
                 YoYo.with(Techniques.Pulse)
                         .duration(40)
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         soundsState = mSharedPreferences.getBoolean(MyConstants.KEY_SOUNDS_STATE,true);
         tapImage.setSoundEffectsEnabled(soundsState);
 
-        nextEggLabel.setText("Next egg:"+nextEggCounter);
+        nextEggLabel.setText("Next egg in:"+nextEggCounter);
         mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
         mTitle.setTextColor(getResources().getColor(R.color.text_white_color));
         setSupportActionBar(mToolbar);
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         //check nextEggCounter
-        if(nextEggCounter == 0){
+        if(nextEggCounter == 0 && i !=0){
             restartNextEggCounter();
         }
     }
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     private void restartNextEggCounter() {
         nextEggCounter = 20;
         mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,20).apply();
-        nextEggLabel.setText("Next egg:"+nextEggCounter);
+        nextEggLabel.setText("Next egg in:"+nextEggCounter);
     }
 
     private void achievementCeremony() {
