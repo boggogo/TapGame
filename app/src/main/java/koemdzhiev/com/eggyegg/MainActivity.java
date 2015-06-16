@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mEditor.putInt(MyConstants.KEY_TAB_NUMBER,startCountDownValue).apply();
                 i = startCountDownValue;
+                tapImage.setImageResource(R.drawable.egg1);
                 mTitle.setText(i + "");
                 YoYo.with(Techniques.FadeOut).duration(500).playOn(findViewById(R.id.restartButton));
                 YoYo.with(Techniques.FadeIn).duration(500).playOn(findViewById(R.id.tapImage));
@@ -89,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(null);
         }
         setEggImage();
-
 
     }
 
