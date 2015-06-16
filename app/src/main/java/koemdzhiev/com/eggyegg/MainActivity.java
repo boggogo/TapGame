@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
        // countTap = (TextView)findViewById(R.id.countTap);
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         nextEggLabel = (TextView)findViewById(R.id.nextEggCount);
-        nextEggLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
         mTapListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

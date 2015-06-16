@@ -23,18 +23,18 @@
         custom:JungleFeverNF="JungleFeverNF.otf"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="430dp"
         android:id="@+id/tapImage"
         android:src="@drawable/egg1"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/restartButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="62dp"/>
+        android:layout_marginBottom="50dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="RESTART"
         android:elevation="10dp"
@@ -53,7 +53,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:id="@+id/nextEggCount"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
