@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Vibrator mVibrator;
     View.OnClickListener mTapListener;
     //here enter start value to count down
+    private final int startNextEggValue = 20;
     private final int startCountDownValue = 120;
 
     @Override
@@ -165,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void restartNextEggCounter() {
-        nextEggCounter = 20;
-        mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,20).apply();
+        nextEggCounter = startNextEggValue;
+        mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,startNextEggValue).apply();
         nextEggLabel.setText("Next egg in:"+nextEggCounter);
     }
 
