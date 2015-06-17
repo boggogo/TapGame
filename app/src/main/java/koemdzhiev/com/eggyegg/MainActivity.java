@@ -1,6 +1,7 @@
 package koemdzhiev.com.eggyegg;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -219,6 +220,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return true;
+        }
+        if(id == R.id.action_contributors){
+            Intent intent = new Intent(this,ContributorsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
