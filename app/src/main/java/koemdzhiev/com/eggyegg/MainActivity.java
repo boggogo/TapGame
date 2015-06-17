@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
     Vibrator mVibrator;
     View.OnClickListener mTapListener;
     //here enter start value to count down
-    private final int startNextEggValue = 20;
-    private final int startCountDownValue = 120;
+    private final int startNextEggValue = 160000;
+    private final int startCountDownValue = 1000000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 nextEggLabel.setText("Next egg in:"+nextEggCounter);
                 //apply animation
                 YoYo.with(Techniques.Pulse)
-                        .duration(40)
+                        .duration(30)
                         .playOn(findViewById(R.id.tapImage));
 
                 setEggImage();
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
 
-        nextEggCounter = mSharedPreferences.getInt(MyConstants.KEY_TAB_NEXT_EGG, 20);
+        nextEggCounter = mSharedPreferences.getInt(MyConstants.KEY_TAB_NEXT_EGG, nextEggCounter);
         i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, startCountDownValue);
         mTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
         mTitle.setText(i + "");
@@ -124,41 +124,41 @@ public class MainActivity extends AppCompatActivity {
 
     private void setEggImage() {
         //840000
-        if(i <= 100){
+        if(i <= 840000){
             tapImage.setImageResource(R.drawable.egg2);
-            if(i == 100){
+            if(i == 840000){
                 mVibrator.vibrate(200);
                 achievementCeremony();
             }
         }
         //680000
-        if(i <= 80){
+        if(i <= 680000){
             tapImage.setImageResource(R.drawable.egg3);
-            if(i == 80){
+            if(i == 680000){
                 mVibrator.vibrate(200);
                 achievementCeremony();
             }
         }
         //520000
-        if(i <= 60){
+        if(i <= 520000){
             tapImage.setImageResource(R.drawable.egg4);
-            if(i == 60) {
+            if(i == 520000) {
                 mVibrator.vibrate(200);
                 achievementCeremony();
             }
         }
         //360000
-        if(i <= 40){
+        if(i <= 360000){
             tapImage.setImageResource(R.drawable.egg5);
-            if(i == 40){
+            if(i == 360000){
                 mVibrator.vibrate(200);
                 achievementCeremony();
             }
         }
         //200000
-        if(i <= 20){
+        if(i <= 200000){
             tapImage.setImageResource(R.drawable.egg6);
-            if(i == 20){
+            if(i == 200000){
                 mVibrator.vibrate(200);
                 achievementCeremony();
             }
@@ -171,6 +171,8 @@ public class MainActivity extends AppCompatActivity {
                 YoYo.with(Techniques.FadeIn).duration(1500).playOn(mRestartButton);
                 tapImage.setOnClickListener(null);
             }
+
+            nextEggLabel.setText("YOU ARE VERY CLOSE TO DISCOVERING THE SECRET MESSAGE");
         }
         //check nextEggCounter
         if(nextEggCounter == 0 && i !=0){
