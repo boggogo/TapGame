@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private Button mRestartButton;
     private TextView mSecretMessage;
+    private TextView mSecretMessageSubtitle;
     private ImageView tapImage;
     private TextView nextEggLabel;
     private int nextEggCounter;
@@ -47,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         //Google ads
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        if(mAdView != null) {
+            mAdView.loadAd(adRequest);
+        }
 
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         nextEggLabel = (TextView)findViewById(R.id.nextEggCount);
@@ -73,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mSecretMessage = (TextView) findViewById(R.id.secretMessage);
         mSecretMessage.setVisibility(View.INVISIBLE);
+        mSecretMessageSubtitle = (TextView) findViewById(R.id.secretMessage_subtitle);
+        mSecretMessageSubtitle.setVisibility(View.INVISIBLE);
         mRestartButton = (Button) findViewById(R.id.restartButton);
         mRestartButton.setVisibility(View.INVISIBLE);
         mRestartButton.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 mRestartButton.setVisibility(View.INVISIBLE);
                 tapImage.setOnClickListener(mTapListener);
                 mSecretMessage.setVisibility(View.INVISIBLE);
+                mSecretMessageSubtitle.setVisibility(View.INVISIBLE);
                 restartNextEggCounter();
             }
         });
@@ -157,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if(i == 0){
                 mSecretMessage.setVisibility(View.VISIBLE);
+                mSecretMessageSubtitle.setVisibility(View.VISIBLE);
                 YoYo.with(Techniques.FadeIn).duration(1900).playOn(mSecretMessage);
                 YoYo.with(Techniques.FadeOut).duration(1500).playOn(tapImage);
                 mRestartButton.setVisibility(View.VISIBLE);
