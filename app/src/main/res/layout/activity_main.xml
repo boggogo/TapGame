@@ -42,19 +42,19 @@
         android:adjustViewBounds="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="68dp"/>
+        android:layout_marginBottom="80dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RESTART"
         android:elevation="10dp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/text_white_color"
         android:id="@+id/restartButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:background="@color/button_color"/>
+        android:background="@color/button_color"
+        android:layout_above="@+id/adView"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
