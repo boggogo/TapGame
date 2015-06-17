@@ -77,7 +77,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:id="@+id/nextEggCount"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
