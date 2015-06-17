@@ -1,10 +1,10 @@
 package koemdzhiev.com.eggyegg;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 
-public class ContributorsActivity extends ActionBarActivity {
+public class ContributorsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
