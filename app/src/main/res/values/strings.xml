@@ -5,7 +5,7 @@
     <string name="koemdzhiev.eggyegg.PREFERENCE_FILE_KEY">numberOfClicks</string>
     <string name="action_mute">Mute sounds</string>
     <string name="banner_ad_unit_id">ca-app-pub-1798838525129690/7808323760</string>
-    <string name="secret_message_subtitle">Assuming you have tapped once every second, you have played this game for approximately 11 days!</string>
+    <string name="secret_message_subtitle">Assuming you have tapped once every second, you have played this game for approximately 7 days!</string>
     <string name="title_activity_contributors">ContributorsActivity</string>
     <string name="next_egg_label_str">Next egg in:</string>
     <string name="acievement_close_to_secret_message">YOU ARE VERY CLOSE TO DISCOVERING THE SECRET MESSAGE</string>

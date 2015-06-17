@@ -38,9 +38,22 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor mEditor;
     Vibrator mVibrator;
     View.OnClickListener mTapListener;
+    private final long vibrationDuration = 150;
     //here enter start value to count down
-    private final int startNextEggValue = 160000;
-    private final int startCountDownValue = 1000000;
+    //111111
+    private final int startNextEggValue = 111111;
+    //666666
+    private final int startCountDownValue = 666666;
+    //555555
+    private final int EGG_2 = 555555;
+    //444444
+    private final int EGG_3 = 444444;
+    //333333
+    private final int EGG_4 = 333333;
+    //222222
+    private final int EGG_5 = 222222;
+    //111111
+    private final int EGG_6 = 111111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         .duration(30)
                         .playOn(findViewById(R.id.tapImage));
 
-                setEggImage();
+                setEggImage(EGG_2,EGG_3,EGG_4,EGG_5,EGG_6,vibrationDuration);
             }
 
         };
@@ -103,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
 
-        nextEggCounter = mSharedPreferences.getInt(MyConstants.KEY_TAB_NEXT_EGG, nextEggCounter);
+        nextEggCounter = mSharedPreferences.getInt(MyConstants.KEY_TAB_NEXT_EGG, startNextEggValue);
         i = mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, startCountDownValue);
         mTitle = (TextView) mToolbar.findViewById(R.id.toolbar_title);
         mTitle.setText(i + "");
@@ -118,48 +131,48 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar()!=null) {
             getSupportActionBar().setTitle(null);
         }
-        setEggImage();
+        setEggImage(EGG_2,EGG_3,EGG_4,EGG_5,EGG_6,vibrationDuration);
 
     }
 
-    private void setEggImage() {
+    private void setEggImage(int egg2,int egg3,int egg4,int egg5,int egg6,long millisecondsVibration) {
         //840000
-        if(i <= 840000){
+        if(i <= egg2){
             tapImage.setImageResource(R.drawable.egg2);
-            if(i == 840000){
-                mVibrator.vibrate(200);
+            if(i == egg2){
+                mVibrator.vibrate(millisecondsVibration);
                 achievementCeremony();
             }
         }
         //680000
-        if(i <= 680000){
+        if(i <= egg3){
             tapImage.setImageResource(R.drawable.egg3);
-            if(i == 680000){
-                mVibrator.vibrate(200);
+            if(i == egg3){
+                mVibrator.vibrate(millisecondsVibration);
                 achievementCeremony();
             }
         }
         //520000
-        if(i <= 520000){
+        if(i <= egg4){
             tapImage.setImageResource(R.drawable.egg4);
-            if(i == 520000) {
-                mVibrator.vibrate(200);
+            if(i == egg4) {
+                mVibrator.vibrate(millisecondsVibration);
                 achievementCeremony();
             }
         }
         //360000
-        if(i <= 360000){
+        if(i <= egg5){
             tapImage.setImageResource(R.drawable.egg5);
-            if(i == 360000){
-                mVibrator.vibrate(200);
+            if(i == egg5){
+                mVibrator.vibrate(millisecondsVibration);
                 achievementCeremony();
             }
         }
         //200000
-        if(i <= 200000){
+        if(i <= egg6){
             tapImage.setImageResource(R.drawable.egg6);
-            if(i == 200000){
-                mVibrator.vibrate(200);
+            if(i == egg6){
+                mVibrator.vibrate(millisecondsVibration);
                 achievementCeremony();
             }
             if(i == 0){
