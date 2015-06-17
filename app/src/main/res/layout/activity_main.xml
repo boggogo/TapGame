@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/secretMessage"
-        android:text="YOU ARE A HERO!"
+        android:text="@string/you_are_hero"
         android:textSize="50sp"
         android:gravity="center"
         android:textStyle="bold"
