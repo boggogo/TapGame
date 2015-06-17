@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,nextEggCounter).apply();
                 Log.d(TAG, mSharedPreferences.getInt(MyConstants.KEY_TAB_NUMBER, 0) + "");
                 mTitle.setText(i + "");
-                nextEggLabel.setText("Next egg in:"+nextEggCounter);
+                nextEggLabel.setText(getString(R.string.next_egg_label_str)+nextEggCounter);
                 //apply animation
                 YoYo.with(Techniques.Pulse)
                         .duration(30)
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         soundsState = mSharedPreferences.getBoolean(MyConstants.KEY_SOUNDS_STATE,true);
         tapImage.setSoundEffectsEnabled(soundsState);
 
-        nextEggLabel.setText("Next egg in:"+nextEggCounter);
+        nextEggLabel.setText(getString(R.string.next_egg_label_str)+nextEggCounter);
         mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
         mTitle.setTextColor(getResources().getColor(R.color.text_white_color));
         setSupportActionBar(mToolbar);
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 tapImage.setOnClickListener(null);
             }
 
-            nextEggLabel.setText("YOU ARE VERY CLOSE TO DISCOVERING THE SECRET MESSAGE");
+            nextEggLabel.setText(getString(R.string.acievement_close_to_secret_message));
         }
         //check nextEggCounter
         if(nextEggCounter == 0 && i !=0){
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     private void restartNextEggCounter() {
         nextEggCounter = startNextEggValue;
         mEditor.putInt(MyConstants.KEY_TAB_NEXT_EGG,startNextEggValue).apply();
-        nextEggLabel.setText("Next egg in:"+nextEggCounter);
+        nextEggLabel.setText(getString(R.string.next_egg_label_str)+nextEggCounter);
     }
 
     private void achievementCeremony() {
